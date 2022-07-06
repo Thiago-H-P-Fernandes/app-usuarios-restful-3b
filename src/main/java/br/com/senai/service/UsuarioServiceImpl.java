@@ -35,8 +35,12 @@ public class UsuarioServiceImpl implements UsuarioService{
     }
 
     @Override
-    public void delete(long id) {
-
+    public void delete(Long id) {
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        if (usuario.isEmpty()) {
+            throw new IllegalArgumentException("Erro");
+        }
+        usuarioRepository.delete(usuario.get());
     }
 
     @Override
@@ -52,7 +56,7 @@ public class UsuarioServiceImpl implements UsuarioService{
         catch (Exception e){
             throw new IllegalArgumentException("Erro", e);
         }
-        
+
     }
 
 

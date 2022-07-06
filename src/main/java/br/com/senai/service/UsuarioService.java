@@ -17,7 +17,7 @@ public interface UsuarioService {
     //Editar usuário
     public Usuario update(long id, Usuario usuario);
     //Deletar usuário
-    public void delete(long id);
+    public void delete(Long id);
 
     public Optional<Usuario> read(long id);
 

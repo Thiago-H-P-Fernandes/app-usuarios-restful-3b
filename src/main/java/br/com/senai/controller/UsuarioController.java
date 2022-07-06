@@ -34,4 +34,18 @@ public class UsuarioController {
             throw new IllegalArgumentException("Erro", e);
         }
     }
+
+    @DeleteMapping("/delete{id}")
+    public String  deleteUser(@PathVariable Long id){
+        try{
+            usuarioService.delete(id);
+            return "BANIDO";
+        }
+        catch (Exception e){
+            throw new IllegalArgumentException("SIM");
+        }
+
+    }
+
+
 }
