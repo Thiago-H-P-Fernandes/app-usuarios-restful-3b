@@ -10,7 +10,7 @@ public interface UsuarioService {
     //Pesquisar todos usuários
     public List<Usuario> findAll();
     //Pesquisar o usuário pelo ID
-    public Usuario findById(long id);
+    public Optional<Usuario> findById(long id);
 
     //Novo usuário
     public Usuario create(Usuario usuario);
@@ -20,4 +20,6 @@ public interface UsuarioService {
     public void delete(long id);
 
     public Optional<Usuario> read(long id);
+
+    public Usuario save(Usuario usuario);
 }

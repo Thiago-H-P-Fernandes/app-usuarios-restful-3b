@@ -20,9 +20,8 @@ public class UsuarioServiceImpl implements UsuarioService{
     }
 
     @Override
-    public Usuario findById(long id) {
-//        return usuarioRepository.findById(id);
-        return null;
+    public Optional<Usuario> findById(long id) {
+        return usuarioRepository.findById(id);
     }
 
     @Override
@@ -44,6 +43,18 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Optional<Usuario> read(long id) {
         return Optional.empty();
     }
+
+    @Override
+    public Usuario save(Usuario usuario) {
+        try {
+            return usuarioRepository.save(usuario);
+        }
+        catch (Exception e){
+            throw new IllegalArgumentException("Erro", e);
+        }
+        
+    }
+
 
 //    a
 //    @Override

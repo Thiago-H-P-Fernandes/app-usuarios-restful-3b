@@ -4,10 +4,11 @@ import br.com.senai.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-//    public List<Usuario> findById(id);
+    public Optional<Usuario> findById(long id);
 
     public List<Usuario> findByNomeContaining(String qNome);
     public List<Usuario> findByUsernameContaining(String qUsername);
