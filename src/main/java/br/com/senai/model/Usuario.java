@@ -4,8 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity (name = "usuario")
 public class  Usuario {
@@ -22,9 +26,18 @@ public class  Usuario {
     @NotNull
     private String username;
 
+    @Size(max = 100)
+    @NotNull
+    private String email;
+
     @Size(max = 50)
     @NotNull
     private String senha;
+
+    @ManyToOne
+    @JoinColumn(name = "locadora_id", nullable = true)
+    @JsonBackReference
+    private Locadora locadora;
 
     public Long getId() {
         return id;
@@ -47,11 +60,25 @@ public class  Usuario {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getSenha() {
         return senha;
     }
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Locadora getLocadora() {
+        return locadora;
+    }
+    public void setLocadora(Locadora locadora) {
+        this.locadora = locadora;
     }
 
     @Override
@@ -60,6 +87,8 @@ public class  Usuario {
                 "\nID: " + id +
                 "\nNome: " + nome +
                 "\nUsername: " + username +
+                "\nEmail:" + email +
                 "\nSenha: " + senha ;
     }
+
 }

@@ -1,4 +1,4 @@
-package br.com.senai.service;
+package br.com.senai.service.usuarioservice;
 
 import br.com.senai.model.Usuario;
 
@@ -13,13 +13,15 @@ public interface UsuarioService {
     public Optional<Usuario> findById(long id);
 
     //Novo usuário
-    public Usuario create(Usuario usuario);
+    public Usuario createUsuario(Usuario usuario);
     //Editar usuário
-    public Usuario update(long id, Usuario usuario);
+    public Usuario updateUsuario(Long id, Usuario updateUsuario);
     //Deletar usuário
-    public void delete(Long id);
+    public String deleteUsuario(Long id);
 
     public Optional<Usuario> read(long id);
 
     public Usuario save(Usuario usuario);
+
+    public void saveUsuarioInLocadora(Long usuario_id, Long locadora_id);
 }

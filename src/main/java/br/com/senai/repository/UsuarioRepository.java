@@ -10,6 +10,8 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     public Optional<Usuario> findById(long id);
 
+    public Usuario findByUsername(String username);
+
     public List<Usuario> findByNomeContaining(String qNome);
     public List<Usuario> findByUsernameContaining(String qUsername);
     public List<Usuario> findByNomeContainingOrUsernameContaining(String qNome, String qUsername);
